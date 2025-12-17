@@ -35,10 +35,11 @@ export const login = async (req: Request, res: Response) => {
     const { token, user } = await loginUser(validatedData);
 
     // 3. Set HttpOnly cookie
+    const isProduction = process.env.NODE_ENV === "production";
     res.cookie("token", token, {
       httpOnly: true,
-      secure: false, // true in production (HTTPS)
-      sameSite: "lax",
+      secure: isProduction, // true in production
+      sameSite: isProduction ? "none" : "lax", // 'none' required for cross-site
       maxAge: 7 * 24 * 60 * 60 * 1000,
     });
 
@@ -84,10 +85,11 @@ export const me = async (req: Request, res: Response) => {
 };
 
 export const logout = (req: Request, res: Response) => {
+  const isProduction = process.env.NODE_ENV === "production";
   res.clearCookie("token", {
     httpOnly: true,
-    secure: false, // matches set cookie options
-    sameSite: "lax",
+    secure: isProduction,
+    sameSite: isProduction ? "none" : "lax",
   });
   return res.json({ message: "Logged out successfully" });
 };
