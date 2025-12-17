@@ -1,8 +1,7 @@
-   services:
+services:
   - type: web
     name: task-manager-backend
     env: node
-
     plan: free
     buildCommand: cd backend && npm install && npx prisma generate && npm run build
     startCommand: cd backend && npm start
@@ -16,7 +15,7 @@
           name: task-manager-db
           property: connectionString
       - key: CLIENT_URL
-        sync: false # User must update this after Vercel deploy
+        sync: false
 
 databases:
   - name: task-manager-db
