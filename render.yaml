@@ -1,7 +1,8 @@
-services:
+   services:
   - type: web
     name: task-manager-backend
     env: node
+    rootDir: backend
     plan: free
     buildCommand: npm install && npx prisma generate && npm run build
     startCommand: npm start

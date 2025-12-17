@@ -36,7 +36,7 @@ Create \`.env\` files in both \`backend\` and \`frontend\` directories.
 
 **Backend (.env)**
 \`\`\`env
-PORT=5000
+PORT=4000
 DATABASE_URL="postgresql://user:password@localhost:5432/taskmanager"
 JWT_SECRET="your_jwt_secret"
 CLIENT_URL="http://localhost:5173"
@@ -44,7 +44,7 @@ CLIENT_URL="http://localhost:5173"
 
 **Frontend (.env)**
 \`\`\`env
-VITE_API_URL="http://localhost:5000"
+VITE_API_URL="http://localhost:4000"
 \`\`\`
 
 ### 3. Run with Docker (Recommended)
