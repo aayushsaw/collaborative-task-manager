@@ -40,11 +40,13 @@ PORT=4000
 DATABASE_URL="postgresql://user:password@localhost:5432/taskmanager"
 JWT_SECRET="your_jwt_secret"
 CLIENT_URL="http://localhost:5173"
+RENDER_URL="https://task-manager-backend-7wj8.onrender.com"
 \`\`\`
 
 **Frontend (.env)**
 \`\`\`env
 VITE_API_URL="http://localhost:4000"
+VERCEL_URL="https://collaborative-task-manager-frontend-gamma.vercel.app/"
 \`\`\`
 
 ### 3. Run with Docker (Recommended)
